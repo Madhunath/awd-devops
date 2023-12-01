@@ -43,13 +43,20 @@ pipeline {
                     withDockerRegistry(credentialsId: '2fe19d8a-3d12-4b82-ba20-9d22e6bf1672', toolName: 'docker') {
                         
                         sh "docker build -t shopping-cart -f docker/Dockerfile ."
-                        sh "docker tag  shopping-cart adijaiswal/shopping-cart:latest"
-                        sh "docker push adijaiswal/shopping-cart:latest"
+                        sh "docker tag  shopping-cart madhunath/shopping-cart:latest"
+                        sh "docker push madhunath/shopping-cart:latest"
                     }
                 }
             }
         }
-        
-        
+    
+        stage('Docker Deploy to Container') {
+            steps {
+                script {
+                withDockerRegistry(credentialsId: 'e8442a03-f89f-46d7-853e-ca9d84d501d0', toolName: 'bigproject') {
+                    sh "docker run -d --name shopping-cart -p 8070:8070 madhunath/shopping-cart:latest" }
+                }                
+            }
+        }
     }
 }
