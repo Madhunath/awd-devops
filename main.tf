@@ -14,14 +14,15 @@ resource "aws_vpc" "example_vpc" {
 resource "aws_subnet" "example_subnet" {
   vpc_id     = aws_vpc.example_vpc.id
   cidr_block = "10.0.1.0/24"
-  availability_zone = "us-east-1"
+  availability_zone = "us-east-2a"
   tags = {
     Name = "example-subnet"
   }
 }
 
 resource "aws_instance" "example_instance" {
-  ami           = "ami-079db87dc4c10ac91"
+  ami           = "ami-0ee4f2271a4df2d7d
+"
   instance_type = "t2.micro"
   subnet_id     = aws_subnet.example_subnet.id
 
