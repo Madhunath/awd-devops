@@ -19,7 +19,8 @@ variable "subnet_cidr_block" {
 }
 
 variable "availability_zone" {
-  default = "us-west-2a" 
+  default = "us-east-2a" 
+
 }
 
 variable "ami_id" {
