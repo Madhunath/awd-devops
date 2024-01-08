@@ -29,4 +29,3 @@ resource "aws_instance" "example_instance" {
     Name = "example-instance"
   }
 }
-
