@@ -4,7 +4,6 @@ resource "aws_instance" "my_instance" {
 
   subnet_id           = aws_subnet.my_subnet.id
   security_group_ids  = [aws_security_group.my_security_group.id]
-  associate_public_ip_address = true
 
   tags = {
     Name = "MyEC2Instance"
